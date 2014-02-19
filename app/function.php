@@ -5,5 +5,3 @@ function p($var){
     print_r($var);
     echo "</pre>";
 }
-
-?>

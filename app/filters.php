@@ -13,7 +13,34 @@
 
 App::before(function($request)
 {
-	//
+    // so they are visiting a generic URL, we need to pick a language for them
+    if (Request::segment(1) != 'en' AND Request::segment(1) != 'zh') {
+
+        // Get language
+        $lang = strtolower($_SERVER["HTTP_ACCEPT_LANGUAGE"]);
+
+        $append = '';
+        if (Request::getQueryString() != '') {
+            $append = '?' . Request::getQueryString();
+        }
+
+         $path = '/'.Request::path();
+
+        if (substr($lang,0,5) == 'zh-tw' || substr($lang,0,5) == 'zh-hk') {
+            return Redirect::to('zh'. $path . $append);
+        } else {
+             return Redirect::to('en'. $path . $append);
+        }
+
+    } else {
+
+        // great, just set the locale
+        if (Request::segment(1)=='zh')
+            App::setLocale('zh');
+        else
+            App::setLocale('en'); // english is default
+
+    }
 });
 
 

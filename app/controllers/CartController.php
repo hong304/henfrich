@@ -28,13 +28,18 @@ class CartController extends BaseController {
 
         $rules = array(
             'id' => 'required|exists:productdetails,id',
-            'qty' => 'required|numeric'
+            'qty' => 'required|numeric',
+            'collar' => 'required',
+            'cuff' => 'required',
+            'pocket' => 'required',
+            'pleat' => 'required',
+            'monogram_name' => 'max:3'
         );
 
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()){
-            return Redirect::route('product_detail')->withErrors($validator)->withInput();
+            return Redirect::route('product_detail',$input['id'])->withErrors($validator)->withInput();
     } else {
             $product = Productdetail::find($input['id']);
 
@@ -46,6 +51,12 @@ class CartController extends BaseController {
             }
             $c->qty=$input['qty'];
             $c->price= $input['qty']*$product['price'];
+            $c->collar=$input['collar'];
+            $c->cuff=$input['cuff'];
+            $c->pocket=$input['pocket'];
+            $c->pleat=$input['pleat'];
+            $c->monogram_name=$input['monogram_name'];
+
             $c->save();
 
            return Redirect::To('cart');

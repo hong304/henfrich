@@ -2,10 +2,10 @@
 
 class ProductController extends BaseController {
 
-    public function getProductList() {
-         $products = Productdetail::all();
+    public function getProductList($type) {
+         $products = Productdetail::where('type',$type)->get();
 
-        return View::make('product_list')->with('products',$products);
+        return View::make('Product_list')->with('products',$products);
     }
 
     public function getProductDetail($id){

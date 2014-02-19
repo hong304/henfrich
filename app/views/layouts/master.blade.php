@@ -39,15 +39,23 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="active"><a href="#">NEW</a></li>
+                    <li><a href="{{URL::to('product_list/shirt')}}">{{trans('menu.shirt')}}</a></li>
+                    <li><a href="{{URL::to('product_list/tie')}}">{{trans('menu.tie')}}</a></li>
+                    <li><a href="{{URL::to('product_list/bag')}}">{{trans('menu.bag')}}</a></li>
+                    <li><a href="{{URL::to('product_list/accessory')}}">{{trans('menu.accessory')}}</a></li>
+                    <li><a href="{{URL::to('guide')}}">{{trans('menu.guide')}}</a></li>
+                    <li><a href="{{URL::to('gifting')}}">{{trans('menu.GIFTING')}}</a></li>
+                    <li><a href="{{URL::to('club')}}">{{trans('menu.CLUB')}}</a></li>
+                    <li><a href="{{URL::to('why_henfrich')}}">{{trans('menu.Why Henfrich')}}</a></li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">NEW</a></li>
+                            <li><a href="#">SHIRTS</a></li>
+
+
                             <li class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
                             <li><a href="#">Separated link</a></li>
