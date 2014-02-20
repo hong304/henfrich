@@ -12,9 +12,9 @@
 */
 Route::group(array('prefix' => Request::segment(1)), function()
 {
-    Route::get('/', function()
+    Route::get('/q', function()
     {
-        return Redirect::to('product_list/shirt');
+
     });
 
     // =========== Auth routes ============
