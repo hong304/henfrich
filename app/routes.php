@@ -12,11 +12,6 @@
 */
 Route::group(array('prefix' => Request::segment(1)), function()
 {
-    Route::get('/q', function()
-    {
-
-    });
-
     // =========== Auth routes ============
     Route::get('login', ['as'=>'login', 'uses'=>'AuthController@getLogin']);
     Route::post('login', 'AuthController@postLogin');
@@ -29,6 +24,7 @@ Route::group(array('prefix' => Request::segment(1)), function()
     Route::controller('password', 'RemindersController');
 
     Route::get('product_list/{type}', ['as'=>'product_list', 'uses'=>'ProductController@getProductList']);
+    Route::post('product_filter', 'ProductController@postProductFilter');
     Route::get('product_detail/{id}', ['as'=>'product_detail', 'uses'=>'ProductController@getProductDetail']);
 
     Route::post('add_to_cart','CartController@postAddToCart');

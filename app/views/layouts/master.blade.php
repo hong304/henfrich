@@ -10,8 +10,7 @@
 
     <!-- CSS are placed here -->
     {{ HTML::style('css/bootstrap.css') }}
-    {{ HTML::style('css/bootstrap-responsive.css') }}
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <style>
         @section('styles')
         body {
@@ -84,7 +83,12 @@
 
 <!-- Scripts are placed here -->
 <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+
+
 {{ HTML::script('js/bootstrap.min.js') }}
 
+@yield('footer')
 </body>
 </html>
